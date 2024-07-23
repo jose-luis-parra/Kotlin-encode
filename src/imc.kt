@@ -6,9 +6,14 @@ fun main() {
     val imc = 10000.0 * peso / (altura*altura)
     println( "El valor de imc: ${"%10.1f".format(imc)}" )
 
-    if (imc < 18.5)
-        println("Tu peso está por debajo de lo normal")
+    val mensaje = if (imc < 16) "Delgadez severa"
+    else if (imc < 17) "Delgadez moderada"
+    else if (imc < 18.5) "Delgadez leve"
+    else if (imc < 25) "Peso normal"
+    else if (imc < 30) "Preobesidad"
+    else if (imc < 35) "Obesidad leve"
+    else if (imc < 40) "Obesidad media"
+    else "Obesidad mórbida"
 
-    if ( imc > 25 )
-        println("Tu peso está por encima de lo normal")
+    println(mensaje)
 }
