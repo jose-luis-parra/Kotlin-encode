@@ -1,19 +1,30 @@
 fun main() {
-    val peso = 85
-    val altura = 176
+    print("Introduce tu peso en kg: ")
+    val peso = readln().toIntOrNull()
 
-    // Añade aquí tu código
-    val imc = 10000.0 * peso / (altura*altura)
-    println( "El valor de imc: ${"%10.1f".format(imc)}" )
+    print("Introduce tu altura en cm: ")
+    val altura = readln().toIntOrNull()
 
-    val mensaje = if (imc < 16) "Delgadez severa"
-    else if (imc < 17) "Delgadez moderada"
-    else if (imc < 18.5) "Delgadez leve"
-    else if (imc < 25) "Peso normal"
-    else if (imc < 30) "Preobesidad"
-    else if (imc < 35) "Obesidad leve"
-    else if (imc < 40) "Obesidad media"
-    else "Obesidad mórbida"
+    var imc: Double
 
-    println(mensaje)
+    if (peso != null && altura != null) {
+        imc = 10000.0 * peso / (altura * altura)
+        println("El valor de imc: ${"%10.1f".format(imc)}")
+
+        val mensaje = if (imc < 16) "Delgadez severa"
+        else if (imc < 17) "Delgadez moderada"
+        else if (imc < 18.5) "Delgadez leve"
+        else if (imc < 25) "Peso normal"
+        else if (imc < 30) "Preobesidad"
+        else if (imc < 35) "Obesidad leve"
+        else if (imc < 40) "Obesidad media"
+        else "Obesidad mórbida"
+
+        println(mensaje)
+    }
+    else {
+        println("Por favor, vuelva a intentarlo")
+        return
+    }
+
 }
